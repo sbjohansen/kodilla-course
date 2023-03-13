@@ -170,19 +170,15 @@ class ShapeCollectorTestSuite {
         void testShowFigures() {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
-            Shape shape = new Triangle("Triangle One", 5.0, 5.0);
-            Shape shape2 = new Square("Square One", 5.0);
-            Shape shape3 = new Circle("Circle One", 5.0);
+            Shape shape = new Circle("Circle One", 5.0);
             shapeCollector.addFigure(shape);
-            shapeCollector.addFigure(shape2);
-            shapeCollector.addFigure(shape3);
 
             //When
-            shapeCollector.showFigures();
+            Shape retrievedShape;
+            retrievedShape = shapeCollector.showFigures();
 
             //Then
-            Assertions.assertEquals(3, shapeCollector.getShapeQuantity());
-
+            assertEquals(shape, retrievedShape);
         }
     }
 }
