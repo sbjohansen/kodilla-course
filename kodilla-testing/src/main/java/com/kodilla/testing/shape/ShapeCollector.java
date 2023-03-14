@@ -3,32 +3,33 @@ package com.kodilla.testing.shape;
 import java.util.ArrayList;
 
 public class ShapeCollector {
-    private Shape shape;
-    private int shapeQuantity = 0;
     private ArrayList<Shape> shapes = new ArrayList<>();
 
     public void addFigure(Shape shape) {
-        this.shape = shape;
         shapes.add(shape);
-        shapeQuantity++;
     }
 
     public void removeFigure(Shape shape) {
-        this.shape = shape;
         shapes.remove(shape);
-        shapeQuantity--;
     }
 
     public Shape getFigure(int n) {
-        return shapes.get(n);
+        if (n >= 0 && n < shapes.size()) {
+            return shapes.get(n);
+        } else {
+            return null;
+        }
     }
 
     public int getShapeQuantity() {
-        return shapeQuantity;
+        return shapes.size();
     }
 
-    public Shape showFigures() {
-        return shape;
+    public String showFigures() {
+        StringBuilder sb = new StringBuilder();
+        for (Shape shape : shapes) {
+            sb.append(shape.getShapeName()).append("\n");
+        }
+        return sb.toString();
     }
-
 }

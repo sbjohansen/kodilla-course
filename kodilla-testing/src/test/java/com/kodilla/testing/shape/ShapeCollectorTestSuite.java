@@ -171,14 +171,18 @@ class ShapeCollectorTestSuite {
             //Given
             ShapeCollector shapeCollector = new ShapeCollector();
             Shape shape = new Circle("Circle One", 5.0);
+            Shape shape2 = new Square("Square One", 5.0);
+            Shape shape3 = new Triangle("Triangle One", 5.0, 5.0);
             shapeCollector.addFigure(shape);
+            shapeCollector.addFigure(shape2);
+            shapeCollector.addFigure(shape3);
 
             //When
-            Shape retrievedShape;
-            retrievedShape = shapeCollector.showFigures();
+            String retrievedShapesString = shapeCollector.showFigures();
 
             //Then
-            assertEquals(shape, retrievedShape);
+            String expectedShapesString = shape.getShapeName() + "\n" + shape2.getShapeName() + "\n" + shape3.getShapeName() + "\n";
+            assertEquals(expectedShapesString, retrievedShapesString);
         }
     }
 }
