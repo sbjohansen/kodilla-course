@@ -1,7 +1,5 @@
 package com.kodilla.exception.test;
 
-import java.util.Map;
-
 public class RouteNotFoundExceptionRunner {
     public static void main(String[] args) {
         FlightSearch flightFinder = new FlightSearch();
